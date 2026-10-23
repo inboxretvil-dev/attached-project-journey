@@ -1,24 +1,50 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router'
+import { Navbar } from '@/components/site/navbar'
+import { Hero } from '@/components/site/hero'
+import { CaseStudies } from '@/components/site/case-studies'
+import { Services } from '@/components/site/services'
+import { Process } from '@/components/site/process'
+import { Framework } from '@/components/site/framework'
+import { Pricing } from '@/components/site/pricing'
+import { Testimonials } from '@/components/site/testimonials'
+import { Contact } from '@/components/site/contact'
+import { Footer } from '@/components/site/footer'
+import { ScrollReveal } from '@/components/site/scroll-reveal'
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
+const title = 'Appoint Funnels — B2B AI Lead Generation Systems'
+const description =
+  'High-velocity client acquisition engines. AI cold SMS, email list activation, and cold email infrastructure for B2B companies ready to scale.'
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+export const Route = createFileRoute('/')({
+  head: () => ({
+    meta: [
+      { title },
+      { name: 'description', content: description },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
+  }),
+  component: Page,
+})
+
+function Page() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <CaseStudies />
+        <Services />
+        <Process />
+        <Framework />
+        <Pricing />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+      <ScrollReveal />
+    </>
+  )
 }
