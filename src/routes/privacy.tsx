@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router'
 import { ArrowLeft, ArrowUpRight, ShieldCheck } from 'lucide-react'
+import { Navbar } from '@/components/site/navbar'
+import { Footer } from '@/components/site/footer'
 
 
 const sections = [
@@ -37,7 +39,9 @@ const sections = [
 
 function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <>
+    <Navbar />
+    <main className="min-h-screen bg-background pt-28 text-foreground">
       <section className="border-b border-border bg-secondary/60">
         <div className="mx-auto max-w-5xl px-5 py-8 sm:px-8 sm:py-12">
           <Link
@@ -110,6 +114,8 @@ function PrivacyPage() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   )
 }
 

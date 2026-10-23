@@ -1,0 +1,3 @@
+- [ ] Create dedicated pages for Systems, Process, Pricing, Results, and Contact.
+- [ ] Fix header and contact navigation across all pages, including mobile and Privacy.
+- [ ] Verify page-to-page navigation and existing routing tests.
