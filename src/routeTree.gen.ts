@@ -11,7 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProcessRouteImport } from './routes/process'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as SystemsRouteImport } from './routes/systems'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +28,110 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SystemsRoute = SystemsRouteImport.update({
+  id: '/systems',
+  path: '/systems',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/results': typeof ResultsRoute
+  '/systems': typeof SystemsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/results': typeof ResultsRoute
+  '/systems': typeof SystemsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/results': typeof ResultsRoute
+  '/systems': typeof SystemsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/privacy'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/pricing'
+    | '/privacy'
+    | '/process'
+    | '/results'
+    | '/systems'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/privacy'
-  id: '__root__' | '/' | '/about' | '/privacy'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/pricing'
+    | '/privacy'
+    | '/process'
+    | '/results'
+    | '/systems'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/pricing'
+    | '/privacy'
+    | '/process'
+    | '/results'
+    | '/systems'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  ProcessRoute: typeof ProcessRoute
+  ResultsRoute: typeof ResultsRoute
+  SystemsRoute: typeof SystemsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +150,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/systems': {
+      id: '/systems'
+      path: '/systems'
+      fullPath: '/systems'
+      preLoaderRoute: typeof SystemsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +198,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  ProcessRoute: ProcessRoute,
+  ResultsRoute: ResultsRoute,
+  SystemsRoute: SystemsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
