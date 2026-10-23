@@ -1,4 +1,4 @@
-import { Image } from '@/components/site/site/image'
+import { Image } from '@/components/site/image'
 import { Link } from '@tanstack/react-router'
 import { Mail, Phone } from 'lucide-react'
 

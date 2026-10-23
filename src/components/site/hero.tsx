@@ -1,4 +1,4 @@
-import { Image } from '@/components/site/site/image'
+import { Image } from '@/components/site/image'
 import { ArrowUpRight, Star } from 'lucide-react'
 
 const tickerItems = [

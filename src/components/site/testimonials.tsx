@@ -1,4 +1,4 @@
-import { Image } from '@/components/site/site/image'
+import { Image } from '@/components/site/image'
 
 export function Testimonials() {
   return (

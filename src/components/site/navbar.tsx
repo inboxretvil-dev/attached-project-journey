@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Image } from '@/components/site/site/image'
+import { Image } from '@/components/site/image'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 
 const links = [
