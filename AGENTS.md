@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Header destinations use dedicated TanStack routes and Link active states, so navigation works from every page.
+- Standalone section pages reuse the original site sections through ContentPage to keep content and styling consistent with the homepage.

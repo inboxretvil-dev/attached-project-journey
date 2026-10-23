@@ -1,4 +1,5 @@
 import { ArrowUpRight, MessageSquareText, DatabaseZap, MailCheck } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 
 const services = [
   {
@@ -33,13 +34,13 @@ export function Services() {
             What we are offering
           </h2>
         </div>
-        <a
-          href="#contact"
+        <Link
+          to="/contact"
           className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wide text-primary-foreground transition-opacity hover:opacity-90"
         >
           Get in Touch
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-        </a>
+        </Link>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">

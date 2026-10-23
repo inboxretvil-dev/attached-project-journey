@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 import { EmailMockup, SmsMockup } from '@/components/site/card-mockups'
 
 const cases = [
@@ -39,13 +40,13 @@ export function CaseStudies() {
                 {title}
               </h3>
               <p className="mt-4 leading-relaxed text-card-foreground">{description}</p>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="mt-8 inline-flex items-center gap-2 rounded-full border border-brand/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-white"
               >
                 Learn More
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
             <Mockup />
           </article>

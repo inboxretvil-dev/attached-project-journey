@@ -1,25 +1,26 @@
 import { useState } from 'react'
+import { Link } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button'
 import { Image } from '@/components/site/image'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 
 const links = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '/about' },
-  { label: 'Systems', href: '#systems' },
-  { label: 'Process', href: '#process' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Results', href: '#results' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Systems', to: '/systems' },
+  { label: 'Process', to: '/process' },
+  { label: 'Pricing', to: '/pricing' },
+  { label: 'Results', to: '/results' },
+  { label: 'Contact', to: '/contact' },
+] as const
 
 export function Navbar() {
-  const [active, setActive] = useState('Home')
   const [open, setOpen] = useState(false)
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border bg-background/60 px-5 py-3 backdrop-blur-xl">
-        <a href="#home" className="flex items-center gap-2.5">
+        <Link to="/" onClick={() => setOpen(false)} className="flex shrink-0 items-center gap-2.5">
           <Image
             src="/images/logo-mark.png"
             alt=""
@@ -31,25 +32,23 @@ export function Navbar() {
           <span className="font-heading text-lg font-bold tracking-tight text-foreground">
             Appoint Funnels
           </span>
-        </a>
+        </Link>
 
         <nav
           aria-label="Main navigation"
           className="hidden items-center gap-1 rounded-full bg-secondary/50 p-1 lg:flex"
         >
           {links.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
-              onClick={() => setActive(link.label)}
-              className={`rounded-full px-4 py-2 text-sm transition-colors ${
-                active === link.label
-                  ? 'bg-secondary text-foreground'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
+              to={link.to}
+              activeOptions={{ exact: true }}
+              activeProps={{ className: 'bg-secondary text-foreground' }}
+              inactiveProps={{ className: 'text-muted-foreground hover:text-foreground' }}
+              className="rounded-full px-3 py-2 text-sm transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -63,7 +62,9 @@ export function Navbar() {
             Book Intro Call
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
-          <button
+           <Button
+             variant="ghost"
+             size="icon"
             type="button"
             onClick={() => setOpen(!open)}
             className="inline-flex rounded-full p-2 text-foreground lg:hidden"
@@ -71,7 +72,7 @@ export function Navbar() {
             aria-label="Toggle menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+           </Button>
         </div>
       </div>
 
@@ -83,16 +84,17 @@ export function Navbar() {
           <ul className="flex flex-col gap-1">
             {links.map((link) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
+                <Link
+                  to={link.to}
+                  activeOptions={{ exact: true }}
+                  activeProps={{ className: 'bg-secondary text-foreground' }}
                   onClick={() => {
-                    setActive(link.label)
                     setOpen(false)
                   }}
                   className="block rounded-xl px-4 py-3 text-sm text-card-foreground hover:bg-secondary"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
