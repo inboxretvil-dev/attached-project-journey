@@ -11,6 +11,8 @@ const links = [
   { label: 'Process', to: '/process' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Results', to: '/results' },
+  { label: 'Privacy', to: '/privacy' },
+  { label: 'Terms', to: '/terms' },
   { label: 'Contact', to: '/contact' },
 ] as const
 
