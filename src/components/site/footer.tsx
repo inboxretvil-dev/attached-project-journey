@@ -62,9 +62,14 @@ export function Footer() {
         </nav>
 
         <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground sm:items-end">
-          <Link to="/privacy" className="transition-colors hover:text-foreground">
-            Privacy & Service Policy
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="transition-colors hover:text-foreground">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-foreground">
+              Terms of Service
+            </Link>
+          </div>
           <p>© {new Date().getFullYear()} Appoint Funnels. All rights reserved.</p>
         </div>
       </div>
