@@ -7,32 +7,38 @@ import { Footer } from '@/components/site/footer'
 
 const sections = [
   {
-    title: 'Service delivery and external dependencies',
+    title: 'Information we collect',
     paragraphs: [
-      'Appoint Funnels builds and manages lead-generation systems using third-party platforms, including cold email, SMS, inbox, warm-up, and automation tools. Some parts of a project therefore depend on internet connectivity, third-party availability, account approvals, platform limits, and external policy changes.',
-      'If internet interruption, a third-party outage, account restriction, technical issue, unusually high workload, or another dependency outside our reasonable control delays the project, the delivery date may be extended. Fees paid for third-party tools are tool costs and are not amounts held by Appoint Funnels for refund.',
+      'We collect the information you give us directly, such as your name, email address, phone number, and business details when you contact us, book a call, or become a client. We also collect the project information needed to deliver our services, such as offer details, target audience, and campaign content.',
+      'When you visit this website, standard technical information such as your browser type, device, and pages visited may be collected through ordinary website analytics to help us understand and improve the site.',
     ],
   },
   {
-    title: 'Platform and warm-up rule changes',
+    title: 'How we use your information',
     paragraphs: [
-      'Google, cold email providers, SMS providers, inbox platforms, and other tools may change their rules, requirements, limits, warm-up periods, or approval processes at any time. This can affect sending volume, campaign launch dates, deliverability, integrations, and other project milestones.',
-      'Where a platform changes its rules or requires additional warm-up time, including where emails cannot yet be sent because a warm-up period has been extended, Appoint Funnels may extend the contract delivery period without cancellation or penalty from the client. We will continue to work within the updated platform requirements and communicate material changes where practical.',
+      'We use client information only as reasonably necessary to deliver the agreed services, configure campaigns, operate connected tools, communicate about the project, and provide support. We may also use your contact details to respond to enquiries and, where you have asked us to, send you information about our services.',
+      'We do not sell your personal information. Client data is shared only with the third-party platforms needed to run your project, such as email, SMS, inbox, warm-up, scheduling, and automation tools, and only to the extent required to deliver the service.',
     ],
   },
   {
-    title: 'Contract period and cancellation',
+    title: 'Client outreach data',
     paragraphs: [
-      'The contract cannot be cancelled during the agreed contract period, including where a campaign is delayed, emails or messages are temporarily not sending, a warm-up period is extended, or a third-party tool causes an error. Delays or errors connected to external tools do not automatically create a right to cancel or receive a refund.',
-      'If the client requests cancellation before the agreed contract end date, the client remains responsible for all third-party tool costs committed or paid for the project, plus a cancellation fee equal to 30% of the contract value. These amounts cover costs already incurred, reserved capacity, setup work, and the cancellation administration involved in closing the project early.',
-      'After one day from the start of the contract, third-party tool costs are non-refundable. Any cancellation request remains subject to the outstanding tool costs and the 30% contract cancellation fee described above.',
+      'Clients are responsible for ensuring that the contact data and content they provide may be used lawfully for the intended outreach. Where we manage campaigns on your behalf, you remain responsible for the lawfulness of the contact lists and messaging you ask us to use.',
+      'We handle outreach data only for the purpose of running your campaigns and do not use it for our own marketing or share it with other clients.',
     ],
   },
   {
-    title: 'Privacy and account access',
+    title: 'Account access and security',
     paragraphs: [
-      'We use client information only as reasonably necessary to deliver the agreed services, configure campaigns, operate connected tools, communicate about the project, and provide support. Clients are responsible for ensuring that the contact data and content they provide may be used lawfully for the intended outreach.',
       'Clients should not provide passwords or sensitive personal information through ordinary email. Where access to a third-party account is required, access should be shared through the platform’s approved invitation or permission system wherever available.',
+      'We take reasonable technical and organisational measures to protect the information we hold. No method of transmission or storage is completely secure, so we cannot guarantee absolute security, but we limit access to what is needed to deliver your project.',
+    ],
+  },
+  {
+    title: 'Retention and your rights',
+    paragraphs: [
+      'We keep client information for as long as needed to deliver the services, meet legal or accounting requirements, and resolve disputes. When information is no longer needed, we delete or anonymise it within a reasonable period.',
+      'You can ask us at any time to access, correct, or delete your personal information, or to stop using it for marketing. To make a request, contact us at appointfunnels@gmail.com and we will respond within a reasonable timeframe.',
     ],
   },
 ]
@@ -55,14 +61,14 @@ function PrivacyPage() {
           <div className="mt-14 max-w-3xl">
             <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-brand">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              Policy & terms
+              Privacy policy
             </div>
             <h1 className="mt-5 text-balance font-heading text-4xl font-bold tracking-tight sm:text-6xl">
-              Privacy & Service Policy
+              Privacy Policy
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
-              The operating terms for project delivery, third-party tools,
-              platform changes, privacy, and contract cancellation.
+              How Appoint Funnels collects, uses, and protects your information
+              when you use this website and our services.
             </p>
             <p className="mt-5 text-sm text-muted-foreground">
               Last updated: October 2026
@@ -76,16 +82,16 @@ function PrivacyPage() {
           <aside className="h-fit rounded-2xl border border-border bg-card p-6 lg:sticky lg:top-8">
             <p className="text-sm font-semibold text-foreground">Quick summary</p>
             <ul className="mt-4 flex flex-col gap-3 text-sm leading-6 text-muted-foreground">
-              <li>Third-party delays can extend delivery dates.</li>
-              <li>Tool costs are non-refundable project costs.</li>
-              <li>Platform rule changes do not cancel the contract.</li>
-              <li>Early cancellation includes a 30% contract fee.</li>
+              <li>We only collect what we need to deliver your project.</li>
+              <li>We never sell your personal information.</li>
+              <li>Outreach data is used only for your campaigns.</li>
+              <li>You can ask us to access, correct, or delete your data.</li>
             </ul>
             <a
               href="mailto:appointfunnels@gmail.com"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline"
             >
-              Ask a policy question
+              Ask a privacy question
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </aside>
@@ -108,7 +114,7 @@ function PrivacyPage() {
             ))}
 
             <div className="rounded-2xl border border-brand/20 bg-brand/5 p-6 text-sm leading-6 text-muted-foreground">
-              <strong className="text-foreground">Important:</strong> This page is a plain-language service policy and does not replace a signed client contract or legal advice. The signed contract controls if there is any conflict. Please have these terms reviewed by a qualified lawyer for the jurisdiction where your contract is formed.
+              <strong className="text-foreground">Important:</strong> This page is a plain-language privacy policy and does not replace legal advice. Please have it reviewed by a qualified lawyer for the jurisdictions where you operate. For our service delivery and cancellation terms, see our <Link to="/terms" className="font-semibold text-brand hover:underline">Terms of Service</Link>.
             </div>
           </div>
         </div>
@@ -122,10 +128,10 @@ function PrivacyPage() {
 export const Route = createFileRoute('/privacy')({
   head: () => ({
     meta: [
-      { title: 'Privacy & Service Policy — Appoint Funnels' },
-      { name: 'description', content: 'Appoint Funnels privacy, service delivery, third-party tool, and contract cancellation policy.' },
-      { property: 'og:title', content: 'Privacy & Service Policy — Appoint Funnels' },
-      { property: 'og:description', content: 'Appoint Funnels privacy, service delivery, third-party tool, and contract cancellation policy.' },
+      { title: 'Privacy Policy — Appoint Funnels' },
+      { name: 'description', content: 'How Appoint Funnels collects, uses, and protects your personal information across our website and services.' },
+      { property: 'og:title', content: 'Privacy Policy — Appoint Funnels' },
+      { property: 'og:description', content: 'How Appoint Funnels collects, uses, and protects your personal information across our website and services.' },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
