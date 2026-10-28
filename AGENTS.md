@@ -11,4 +11,5 @@
 
 - Header destinations use dedicated TanStack routes and Link active states, so navigation works from every page.
 - Standalone section pages reuse the original site sections through ContentPage to keep content and styling consistent with the homepage.
-- The booking page embeds the existing Cal.com hosted scheduler and retains a direct external fallback, so booking stays managed by Cal.com without duplicating scheduling logic.
+- The booking page links to the existing Cal.com hosted scheduler instead of embedding its calendar, so booking stays managed by Cal.com without duplicating scheduling logic.
+- Client-side route-chunk load failures trigger one guarded reload (src/lib/stale-chunk-recovery.ts), so a tab left open across a deploy recovers instead of showing a blank screen.
