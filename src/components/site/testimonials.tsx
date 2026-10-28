@@ -39,6 +39,16 @@ export function Testimonials() {
             </div>
           </figcaption>
         </figure>
+
+        <div className="mt-8 rounded-2xl border border-border bg-card/60 p-6 text-sm leading-6 text-muted-foreground">
+          <p className="font-semibold text-foreground">A note on our reviews and results</p>
+          <p className="mt-2">
+            We had many more testimonials on our old Facebook page, but that page was banned in the past, so a lot of those reviews were lost.
+          </p>
+          <p className="mt-2">
+            When a client stops working with us, we also cancel the subscriptions and tools for their account. That's why the numbers shown in our CRM can go up and down over time — but the data is real, never fake.
+          </p>
+        </div>
       </div>
     </section>
   )

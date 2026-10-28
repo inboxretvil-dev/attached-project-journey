@@ -10,6 +10,20 @@ const sections = [
     paragraphs: [
       'Appoint Funnels builds and manages lead-generation systems using third-party platforms, including cold email, SMS, inbox, warm-up, and automation tools. Some parts of a project therefore depend on internet connectivity, third-party availability, account approvals, platform limits, and external policy changes.',
       'If internet interruption, a third-party outage, account restriction, technical issue, unusually high workload, or another dependency outside our reasonable control delays the project, the delivery date may be extended. Fees paid for third-party tools are tool costs and are not amounts held by Appoint Funnels for refund.',
+      'Because we often handle a high volume of projects at the same time, service delivery may take longer than first estimated. A longer delivery time does not give the client a right to cancel the contract during the agreed contract period.',
+    ],
+  },
+  {
+    title: 'Refund policy',
+    paragraphs: [
+      'Only the Appoint Funnels service fee can be refunded, and only where a refund has been agreed. Ad budgets, the tool stack, software subscriptions, and any other third-party costs are 0% refundable, because that money is paid to the tool providers and is not kept by Appoint Funnels.',
+      'Approved refunds can take up to 1 to 2 months to be processed. This is because costs already spent on the project have to be recovered before a refund can be paid out.',
+    ],
+  },
+  {
+    title: 'Contract and privacy policy agreement',
+    paragraphs: [
+      'By signing an Appoint Funnels contract, the client also agrees to the Appoint Funnels Privacy Policy and these Terms of Service. The Privacy Policy forms part of the agreement and may be relied on in support of Appoint Funnels in any dispute or legal action.',
     ],
   },
   {
@@ -17,6 +31,7 @@ const sections = [
     paragraphs: [
       'Google, cold email providers, SMS providers, inbox platforms, and other tools may change their rules, requirements, limits, warm-up periods, or approval processes at any time. This can affect sending volume, campaign launch dates, deliverability, integrations, and other project milestones.',
       'Where a platform changes its rules or requires additional warm-up time, including where emails cannot yet be sent because a warm-up period has been extended, Appoint Funnels may extend the contract delivery period without cancellation or penalty from the client. We will continue to work within the updated platform requirements and communicate material changes where practical.',
+      'Appoint Funnels is not responsible for emails that are not delivered because of warm-up periods or rule changes made by Google or other software providers. In those cases the client must wait for the warm-up period to finish and for deliverability to recover.',
     ],
   },
   {
@@ -83,7 +98,9 @@ function TermsPage() {
             <p className="text-sm font-semibold text-foreground">Quick summary</p>
             <ul className="mt-4 flex flex-col gap-3 text-sm leading-6 text-muted-foreground">
               <li>Third-party delays can extend delivery dates.</li>
-              <li>Tool costs are non-refundable project costs.</li>
+              <li>Only the service fee is refundable — ad budget and tools are 0%.</li>
+              <li>Refunds can take 1–2 months to process.</li>
+              <li>Signing the contract includes our Privacy Policy.</li>
               <li>Platform rule changes do not cancel the contract.</li>
               <li>Early cancellation includes a 30% contract fee.</li>
             </ul>
