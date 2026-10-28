@@ -41,6 +41,12 @@ const sections = [
       'You can ask us at any time to access, correct, or delete your personal information, or to stop using it for marketing. To make a request, contact us at appointfunnels@gmail.com and we will respond within a reasonable timeframe.',
     ],
   },
+  {
+    title: 'Agreement through your contract',
+    paragraphs: [
+      'When you sign a contract with Appoint Funnels, you also agree to this Privacy Policy. It forms part of your agreement with us and may be relied on in support of Appoint Funnels in any dispute or legal action.',
+    ],
+  },
 ]
 
 function PrivacyPage() {
