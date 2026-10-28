@@ -11,3 +11,4 @@
 
 - Header destinations use dedicated TanStack routes and Link active states, so navigation works from every page.
 - Standalone section pages reuse the original site sections through ContentPage to keep content and styling consistent with the homepage.
+- The booking page embeds the existing Cal.com hosted scheduler and retains a direct external fallback, so booking stays managed by Cal.com without duplicating scheduling logic.

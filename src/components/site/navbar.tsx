@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import { Image } from '@/components/site/image'
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const links = [
   { label: 'Home', to: '/' },
@@ -14,6 +14,7 @@ const links = [
   { label: 'Privacy', to: '/privacy' },
   { label: 'Terms', to: '/terms' },
   { label: 'Contact', to: '/contact' },
+  { label: 'book-call', to: '/book-call' },
 ] as const
 
 export function Navbar() {
@@ -47,7 +48,7 @@ export function Navbar() {
               activeOptions={{ exact: true }}
               activeProps={{ className: 'bg-secondary text-foreground' }}
               inactiveProps={{ className: 'text-muted-foreground hover:text-foreground' }}
-              className="rounded-full px-3 py-2 text-sm transition-colors"
+              className="rounded-full px-2 py-2 text-sm transition-colors"
             >
               {link.label}
             </Link>
@@ -55,15 +56,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="https://cal.com/appointfunnels/discoverycall"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
-          >
-            Book Intro Call
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
            <Button
              variant="ghost"
              size="icon"
