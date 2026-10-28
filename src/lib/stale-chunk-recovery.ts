@@ -46,14 +46,15 @@ export function claimStaleChunkReload(
 ): boolean {
   if (!storage) return false;
 
-  let last = 0;
+  let last: number | null = null;
   try {
-    last = Number(storage.getItem(RELOAD_KEY)) || 0;
+    const stored = storage.getItem(RELOAD_KEY);
+    last = stored == null ? null : Number(stored);
   } catch {
-    last = 0;
+    last = null;
   }
 
-  if (now - last < RELOAD_COOLDOWN_MS) return false;
+  if (last != null && Number.isFinite(last) && now - last < RELOAD_COOLDOWN_MS) return false;
 
   try {
     storage.setItem(RELOAD_KEY, String(now));
