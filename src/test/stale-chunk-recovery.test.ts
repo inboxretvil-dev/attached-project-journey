@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   claimStaleChunkReload,
   isStaleChunkError,
+  recoverStaleChunk,
 } from "@/lib/stale-chunk-recovery";
 
 // The failure this guards: an open tab asking for a route chunk from the previous
@@ -12,11 +13,22 @@ const STALE = new TypeError(
   "Failed to fetch dynamically imported module: https://preview.lovable.app/assets/routes-DN18i4jn.js",
 );
 
-function fakeStorage() {
+function workingStorage() {
   const values = new Map<string, string>();
   return {
     getItem: (key: string) => values.get(key) ?? null,
     setItem: (key: string, value: string) => void values.set(key, value),
+  };
+}
+
+function blockedStorage() {
+  return {
+    getItem: () => {
+      throw new Error("SecurityError: storage is blocked");
+    },
+    setItem: () => {
+      throw new Error("SecurityError: storage is blocked");
+    },
   };
 }
 
@@ -33,17 +45,21 @@ describe("stale chunk recovery", () => {
     expect(isStaleChunkError(new Error("Cannot read properties of undefined"))).toBe(false);
     expect(isStaleChunkError(undefined)).toBe(false);
     expect(isStaleChunkError("boom")).toBe(false);
+    expect(recoverStaleChunk(new Error("Cannot read properties of undefined"))).toBe(false);
   });
 
   it("allows one reload, then blocks a second inside the cooldown", () => {
-    const storage = fakeStorage();
+    const storage = workingStorage();
 
-    expect(claimStaleChunkReload(storage, 1_000)).toBe(true);
-    expect(claimStaleChunkReload(storage, 2_000)).toBe(false);
-    expect(claimStaleChunkReload(storage, 16_000)).toBe(true);
+    expect(claimStaleChunkReload(storage, 200_000)).toBe(true);
+    expect(claimStaleChunkReload(storage, 201_000)).toBe(false);
+    expect(claimStaleChunkReload(storage, 216_000)).toBe(true);
   });
 
-  it("does not reload when storage is unavailable", () => {
-    expect(claimStaleChunkReload(undefined, 1_000)).toBe(false);
+  it("still limits reloads when storage is blocked", () => {
+    const storage = blockedStorage();
+
+    expect(claimStaleChunkReload(storage, 400_000)).toBe(true);
+    expect(claimStaleChunkReload(storage, 401_000)).toBe(false);
   });
 });

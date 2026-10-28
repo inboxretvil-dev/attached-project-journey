@@ -37,29 +37,38 @@ export function isStaleChunkError(error: unknown): boolean {
   return STALE_CHUNK_PATTERNS.some((pattern) => pattern.test(text));
 }
 
+// sessionStorage can be unavailable (private mode) or throw, so keep an in-page
+// fallback; without it a build that genuinely cannot load would reload forever.
+let memoryLast: number | null = null;
+
 // Claim the single reload allowed per cooldown window. Returns false when one
-// already happened, so a build that genuinely cannot load does not reload forever.
+// already happened inside the cooldown.
 export function claimStaleChunkReload(
-  storage: Pick<Storage, "getItem" | "setItem"> | undefined =
-    typeof window === "undefined" ? undefined : window.sessionStorage,
+  storage: Pick<Storage, "getItem" | "setItem"> | null =
+    typeof window === "undefined" ? null : window.sessionStorage,
   now: number = Date.now(),
 ): boolean {
-  if (!storage) return false;
+  let last = memoryLast;
 
-  let last: number | null = null;
-  try {
-    const stored = storage.getItem(RELOAD_KEY);
-    last = stored == null ? null : Number(stored);
-  } catch {
-    last = null;
+  if (storage) {
+    try {
+      const stored = storage.getItem(RELOAD_KEY);
+      last = stored == null ? null : Number(stored);
+    } catch {
+      // Fall back to the in-page record below.
+    }
   }
 
   if (last != null && Number.isFinite(last) && now - last < RELOAD_COOLDOWN_MS) return false;
 
-  try {
-    storage.setItem(RELOAD_KEY, String(now));
-  } catch {
-    // Storage may be blocked (private mode); still allow this one reload.
+  memoryLast = now;
+
+  if (storage) {
+    try {
+      storage.setItem(RELOAD_KEY, String(now));
+    } catch {
+      // Record kept in memory only.
+    }
   }
 
   return true;
