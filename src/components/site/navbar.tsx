@@ -14,6 +14,8 @@ const links = [
   { label: 'Privacy', to: '/privacy' },
   { label: 'Terms', to: '/terms' },
   { label: 'Contact', to: '/contact' },
+  { label: 'SMS Form', to: '/onboarding-sms' },
+  { label: 'Email Form', to: '/onboarding-email' },
   { label: 'book-call', to: '/book-call' },
 ] as const
 
