@@ -3,3 +3,4 @@
 - [x] Verify page-to-page navigation and existing routing tests.
 - [x] Add the book-call page with the existing Cal.com calendar and header access.
 - [x] Apply the uploaded blue favicon and verify the page and icon.
+- [x] Allow onboarding forms to submit with blank answers (only name + email needed).

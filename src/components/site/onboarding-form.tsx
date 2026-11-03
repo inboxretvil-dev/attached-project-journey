@@ -36,6 +36,9 @@ export function OnboardingForm({
         {title}
       </h2>
       <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">{intro}</p>
+      <p className="mt-4 rounded-xl border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground">
+        Only your name and email are needed. Leave anything else blank and submit anyway — you can send the rest later.
+      </p>
 
       {submitted ? (
         <div className="mt-12 flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-12 text-center">
@@ -65,7 +68,13 @@ export function OnboardingForm({
                   <div key={f.name}>
                     <label htmlFor={f.name} className="text-sm font-semibold text-foreground">
                       {f.label}
-                      {f.required && <span className="text-brand"> *</span>}
+                      {f.required ? (
+                        <span className="text-brand"> *</span>
+                      ) : (
+                        <span className="ml-2 text-xs font-normal normal-case tracking-normal text-muted-foreground">
+                          optional
+                        </span>
+                      )}
                     </label>
                     {f.help && <p className="mt-1 text-xs leading-5 text-muted-foreground">{f.help}</p>}
                     <div className="mt-2">
@@ -77,7 +86,16 @@ export function OnboardingForm({
                           {f.options?.map((o) => <option key={o}>{o}</option>)}
                         </select>
                       ) : (
-                        <input id={f.name} name={f.name} type={f.type ?? 'text'} required={f.required} maxLength={500} placeholder={f.placeholder} className={inputClasses} />
+                        <input
+                          id={f.name}
+                          name={f.name}
+                          type={f.type === 'url' ? 'text' : (f.type ?? 'text')}
+                          inputMode={f.type === 'url' ? 'url' : undefined}
+                          required={f.required}
+                          maxLength={500}
+                          placeholder={f.placeholder}
+                          className={inputClasses}
+                        />
                       )}
                     </div>
                   </div>
@@ -105,17 +123,17 @@ export const sharedGroups: FieldGroup[] = [
     title: 'Your business',
     fields: [
       { name: 'full_name', label: 'Your full name', required: true },
-      { name: 'company', label: 'Company name', required: true },
+      { name: 'company', label: 'Company name' },
       { name: 'email', label: 'Email', type: 'email', required: true },
-      { name: 'phone', label: 'Phone / WhatsApp', type: 'tel', required: true },
+      { name: 'phone', label: 'Phone / WhatsApp', type: 'tel' },
       { name: 'website', label: 'Website', type: 'url', placeholder: 'https://' },
     ],
   },
   {
     title: 'Offer & targeting',
     fields: [
-      { name: 'niches', label: 'Niches to target', type: 'textarea', required: true, placeholder: 'e.g. Commercial property managers, dental clinics, logistics companies' },
-      { name: 'offer', label: 'Services and products you offer', type: 'textarea', required: true, help: 'Describe it in one simple sentence.', placeholder: 'We provide HVAC services to commercial properties' },
+      { name: 'niches', label: 'Niches to target', type: 'textarea', placeholder: 'e.g. Commercial property managers, dental clinics, logistics companies' },
+      { name: 'offer', label: 'Services and products you offer', type: 'textarea', help: 'Describe it in one simple sentence.', placeholder: 'We provide HVAC services to commercial properties' },
       { name: 'usp', label: 'What makes you different?', type: 'textarea', placeholder: 'Guarantees, speed, pricing, results, years in business…' },
       { name: 'avg_deal', label: 'Average deal / client value', placeholder: 'e.g. $5,000' },
     ],
@@ -124,10 +142,10 @@ export const sharedGroups: FieldGroup[] = [
     title: 'Ideal Customer Profile (ICP)',
     intro: "This is the 'perfect customer' profile — the person or company you most want to work with.",
     fields: [
-      { name: 'icp_industry', label: '(a) What industry they work in', required: true },
-      { name: 'icp_size', label: '(b) How big their company is', type: 'select', options: size, required: true },
-      { name: 'icp_geo', label: '(c) Which geographic areas they are in', required: true, placeholder: 'e.g. Texas, Florida — USA' },
-      { name: 'icp_decision', label: '(d) Who makes the buying decision', required: true, placeholder: "e.g. 'Operations Manager', 'IT Director', 'Owner'" },
+      { name: 'icp_industry', label: '(a) What industry they work in' },
+      { name: 'icp_size', label: '(b) How big their company is', type: 'select', options: size },
+      { name: 'icp_geo', label: '(c) Which geographic areas they are in', placeholder: 'e.g. Texas, Florida — USA' },
+      { name: 'icp_decision', label: '(d) Who makes the buying decision', placeholder: "e.g. 'Operations Manager', 'IT Director', 'Owner'" },
     ],
   },
 ]

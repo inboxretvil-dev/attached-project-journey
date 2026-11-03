@@ -10,13 +10,13 @@ const groups: FieldGroup[] = [
   {
     title: 'Cold email setup',
     fields: [
-      { name: 'em_domains', label: 'Do you want us to buy new sending domains?', type: 'select', options: ['Yes, buy them for me', 'I will buy them', 'I already have domains'], required: true },
+      { name: 'em_domains', label: 'Do you want us to buy new sending domains?', type: 'select', options: ['Yes, buy them for me', 'I will buy them', 'I already have domains'] },
       { name: 'em_domain_ideas', label: 'Preferred domain names (or existing ones)', type: 'textarea', placeholder: 'getacmehvac.com, tryacmehvac.com' },
-      { name: 'em_sender', label: 'Sender name(s) to show on emails', required: true },
-      { name: 'em_list', label: 'Do you have a lead list?', type: 'select', options: ['Yes, I have a list', 'No, build one for me', 'Partly'], required: true },
+      { name: 'em_sender', label: 'Sender name(s) to show on emails' },
+      { name: 'em_list', label: 'Do you have a lead list?', type: 'select', options: ['Yes, I have a list', 'No, build one for me', 'Partly'] },
       { name: 'em_tools', label: 'Tools you already use', placeholder: 'Instantly, Smartlead, Apollo, Google Workspace…' },
       { name: 'em_case', label: 'Case studies, results or testimonials we can mention', type: 'textarea' },
-      { name: 'em_cta', label: 'What should leads do next?', type: 'select', options: ['Book a call', 'Reply for info', 'Get a quote', 'Other'], required: true },
+      { name: 'em_cta', label: 'What should leads do next?', type: 'select', options: ['Book a call', 'Reply for info', 'Get a quote', 'Other'] },
       { name: 'em_booking', label: 'Booking calendar link', type: 'url' },
       { name: 'em_reply', label: 'Who handles replies?', type: 'select', options: ['You (Appoint Funnels)', 'Our team', 'Both'] },
       { name: 'em_avoid', label: 'Companies, competitors or areas to exclude', type: 'textarea' },
