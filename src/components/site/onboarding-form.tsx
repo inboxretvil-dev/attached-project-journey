@@ -36,9 +36,6 @@ export function OnboardingForm({
         {title}
       </h2>
       <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">{intro}</p>
-      <p className="mt-4 rounded-xl border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground">
-        Only your name and email are needed. Leave anything else blank and submit anyway — you can send the rest later.
-      </p>
 
       {submitted ? (
         <div className="mt-12 flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-12 text-center">
@@ -68,13 +65,7 @@ export function OnboardingForm({
                   <div key={f.name}>
                     <label htmlFor={f.name} className="text-sm font-semibold text-foreground">
                       {f.label}
-                      {f.required ? (
-                        <span className="text-brand"> *</span>
-                      ) : (
-                        <span className="ml-2 text-xs font-normal normal-case tracking-normal text-muted-foreground">
-                          optional
-                        </span>
-                      )}
+                      {f.required && <span className="text-brand"> *</span>}
                     </label>
                     {f.help && <p className="mt-1 text-xs leading-5 text-muted-foreground">{f.help}</p>}
                     <div className="mt-2">
