@@ -129,10 +129,6 @@ function TermsPage() {
                 </div>
               </article>
             ))}
-
-            <div className="rounded-2xl border border-brand/20 bg-brand/5 p-6 text-sm leading-6 text-muted-foreground">
-              <strong className="text-foreground">Important:</strong> This page is a plain-language summary of our service terms and does not replace a signed client contract or legal advice. The signed contract controls if there is any conflict. Please have these terms reviewed by a qualified lawyer for the jurisdiction where your contract is formed.
-            </div>
           </div>
         </div>
       </section>
