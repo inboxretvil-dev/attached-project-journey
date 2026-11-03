@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BookCallRouteImport } from './routes/book-call'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as OnboardingEmailRouteImport } from './routes/onboarding-email'
+import { Route as OnboardingSmsRouteImport } from './routes/onboarding-sms'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
@@ -38,6 +40,16 @@ const BookCallRoute = BookCallRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingEmailRoute = OnboardingEmailRouteImport.update({
+  id: '/onboarding-email',
+  path: '/onboarding-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingSmsRoute = OnboardingSmsRouteImport.update({
+  id: '/onboarding-sms',
+  path: '/onboarding-sms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -76,6 +88,8 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/book-call': typeof BookCallRoute
   '/contact': typeof ContactRoute
+  '/onboarding-email': typeof OnboardingEmailRoute
+  '/onboarding-sms': typeof OnboardingSmsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -88,6 +102,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/book-call': typeof BookCallRoute
   '/contact': typeof ContactRoute
+  '/onboarding-email': typeof OnboardingEmailRoute
+  '/onboarding-sms': typeof OnboardingSmsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -101,6 +117,8 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/book-call': typeof BookCallRoute
   '/contact': typeof ContactRoute
+  '/onboarding-email': typeof OnboardingEmailRoute
+  '/onboarding-sms': typeof OnboardingSmsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -115,6 +133,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/book-call'
     | '/contact'
+    | '/onboarding-email'
+    | '/onboarding-sms'
     | '/pricing'
     | '/privacy'
     | '/process'
@@ -127,6 +147,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/book-call'
     | '/contact'
+    | '/onboarding-email'
+    | '/onboarding-sms'
     | '/pricing'
     | '/privacy'
     | '/process'
@@ -139,6 +161,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/book-call'
     | '/contact'
+    | '/onboarding-email'
+    | '/onboarding-sms'
     | '/pricing'
     | '/privacy'
     | '/process'
@@ -152,6 +176,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BookCallRoute: typeof BookCallRoute
   ContactRoute: typeof ContactRoute
+  OnboardingEmailRoute: typeof OnboardingEmailRoute
+  OnboardingSmsRoute: typeof OnboardingSmsRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -188,6 +214,20 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding-email': {
+      id: '/onboarding-email'
+      path: '/onboarding-email'
+      fullPath: '/onboarding-email'
+      preLoaderRoute: typeof OnboardingEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding-sms': {
+      id: '/onboarding-sms'
+      path: '/onboarding-sms'
+      fullPath: '/onboarding-sms'
+      preLoaderRoute: typeof OnboardingSmsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -240,6 +280,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BookCallRoute: BookCallRoute,
   ContactRoute: ContactRoute,
+  OnboardingEmailRoute: OnboardingEmailRoute,
+  OnboardingSmsRoute: OnboardingSmsRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
