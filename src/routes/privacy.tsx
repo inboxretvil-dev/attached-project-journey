@@ -118,10 +118,6 @@ function PrivacyPage() {
                 </div>
               </article>
             ))}
-
-            <div className="rounded-2xl border border-brand/20 bg-brand/5 p-6 text-sm leading-6 text-muted-foreground">
-              <strong className="text-foreground">Important:</strong> This page is a plain-language privacy policy and does not replace legal advice. Please have it reviewed by a qualified lawyer for the jurisdictions where you operate. For our service delivery and cancellation terms, see our <Link to="/terms" className="font-semibold text-brand hover:underline">Terms of Service</Link>.
-            </div>
           </div>
         </div>
       </section>
