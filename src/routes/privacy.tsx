@@ -42,6 +42,13 @@ const sections = [
     ],
   },
   {
+    title: 'Client funds and tool budget',
+    paragraphs: [
+      'Any funds you provide are used by Appoint Funnels to acquire, run, and maintain the tools, platforms, and campaign resources your project needs. We decide how that budget is applied across these resources, and part of it may be held back to cover future tool costs, renewals, replacements, or upgrades as the project develops.',
+      'Much of the tool stack behind our service is owned by Appoint Funnels and paid for by us in advance, and clients are given access to it as part of the engagement. Supplying that access and everything else required within the same agreed budget means the budget also supports our own use of these tools across our business. By paying, you agree to this use of the funds and to the way the budget is applied and retained.',
+    ],
+  },
+  {
     title: 'Agreement through your contract',
     paragraphs: [
       'When you sign a contract with Appoint Funnels, you also agree to this Privacy Policy. It forms part of your agreement with us and may be relied on in support of Appoint Funnels in any dispute or legal action.',
@@ -77,7 +84,7 @@ function PrivacyPage() {
               when you use this website and our services.
             </p>
             <p className="mt-5 text-sm text-muted-foreground">
-              Last updated: October 2026
+              Last updated: November 2026
             </p>
           </div>
         </div>
@@ -92,6 +99,7 @@ function PrivacyPage() {
               <li>We never sell your personal information.</li>
               <li>Outreach data is used only for your campaigns.</li>
               <li>You can ask us to access, correct, or delete your data.</li>
+              <li>Funds you provide go into your tools and campaign resources, and some may be held for future tool costs.</li>
             </ul>
             <a
               href="mailto:appointfunnels@gmail.com"
